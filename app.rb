@@ -40,10 +40,11 @@ post '/sign-up' do
         return
     end
 
-    User.create(params[:user])
+    user = User.create(params[:user])
 
+    session[:user_id] = user.id
     redirect '/'
-    session[:user_id] = params[:user]
+
 end
 
 def current_user
