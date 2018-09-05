@@ -4,7 +4,7 @@ require './models/user.rb'
 require 'bundler/setup'
 require 'sinatra/flash'
 
-set :database, "sqlite3:micro_blog.sqlite3"
+configure(:development){set :database, "sqlite3:micro_blog.sqlite3"}
 enable :sessions
 
 get '/' do
@@ -12,6 +12,8 @@ get '/' do
     erb :home, layout: :layout
     if session[:user_id] == nil
         redirect '/sign-in'
+    elsif session[:user_id]
+        @user = current_user
     end
 end
 
@@ -31,28 +33,17 @@ get '/sign-out' do
     redirect '/'
 end
 
-get '/logged_in' do
-    puts "session: "
-    puts session.inspect
-    if session[:user_id]
-        @user = current_user
-        "logged in page!"
-    else
-        redirect '/'
+post '/sign-up' do
+    if params[:user][:password] != params[:password_confirm]
+        flash[:failure] = "Passwords must match!"
+        redirect '/sign-up'
+        return
     end
-end
 
-post '/sign-in' do
-    user = User.where(email: params[:email]).first
+    User.create(params[:user])
 
-    if user && user.password == params[:password]
-        session[:user_id] = user.id
-        
-        redirect '/logged_in'
-    else
-        redirect '/sign-in'
-        flash[:failure] = "Incorrect Username or Password."
-    end
+    redirect '/'
+    session[:user_id] = params[:user]
 end
 
 def current_user
@@ -60,3 +51,17 @@ def current_user
         User.find(session[:user_id])
     end
 end
+
+
+# post '/sign-in' do
+#     user = User.where(email: params[:email]).first
+
+#     if user && user.password == params[:password]
+#         session[:user_id] = user.id
+        
+#         redirect '/'
+#     else
+#         redirect '/sign-in'
+#         flash[:failure] = "Incorrect Username or Password."
+#     end
+# end
