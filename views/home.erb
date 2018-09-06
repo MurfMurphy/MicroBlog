@@ -1,1 +1,136 @@
-<h1>Welcome, <%= @user.username %> </h1>
+
+
+<div class="twtclone"> 
+        <div class="postHeader">
+            <div class="postTitle">
+                <h3>Twitter</h3>
+            </div>
+            <div class="postNameProfile">
+                <div class="postName">
+                    <p>Welcome, <%= @user.username %></p>
+                </div>
+                <div class="postProfile">
+                    <a href='/profile'><p>Profile</p></a>
+                </div>
+                <div class="signOut">
+                    <form method="POST" action="/sign-out">
+                        <input type="submit" value="Sign Out"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--  -->
+        <!--<div class="sidePostSide">
+            <div class="sidePostHeader">
+                <h4>People</h4>
+            </div>
+            <div class="sideUserInfo">
+                <div class="sideUserName">
+                    george  
+                </div>
+                <div class="SideFollow">
+                    <button id="folloBtn">Follow</button>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="sideUserInfo">
+                    <div class="sideUserName">
+                        george  
+                    </div>
+                    <div class="SideFollow">
+                        <button id="folloBtn">Follow</button>
+        
+                    </div>
+        
+            </div>
+
+
+            <div class="sideUserInfo">
+                    <div class="sideUserName">
+                        george  
+                    </div>
+                    <div class="SideFollow">
+                        <button id="folloBtn">Follow</button>
+        
+                    </div>
+        
+                </div>
+
+
+                    <div class="sideUserInfo">
+                            <div class="sideUserName">
+                                george  
+                            </div>
+                            <div class="SideFollow">
+                                <button id="folloBtn">Follow</button>
+                
+                            </div>
+                
+                        </div>
+
+        </div> -->
+
+        <!--  -->
+        <div class="homeContent">
+            <div class="newPost">
+                <form method="POST" action='/'>
+                    <textarea name= "[posts]body" maxlength="150" rows="4" cols="50"></textarea>
+                    <!--<input type="text" name="" id="postInput">-->
+                    <input type="submit" id="postButton" value="Post">
+                </form>
+
+            </div>
+
+        <div class="postMain">
+            <div class="postPost">
+                <div class="userPost">
+                    <p><%= Post.first.body%></p>
+                    
+                    <div class="postTimeUser"> 
+                        <div class="postTime">
+                            <p><%= Post.first.posted_at%></p>
+                        </div>
+                        <div class="PostUserName">
+                            <p><%= Post.first.user_id%></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!--  -->
+                <div class="userPost">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. delectus velit similique ratione perspiciatis sit vitae, repudiandae possimus sint, harum nemo ullam illum necessitatibus atque?</p>
+
+                        <div class="postTimeUser"> 
+                                <div class="postTime">
+                                    <p>aug 2, 2018</p>
+                                </div>
+                                <div class="PostUserName">
+                                    <p>george</p>
+                                </div>
+                        </div>
+                    </div>
+                
+                <!--  -->
+                <div class="userPost">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. delectus velit similique ratione perspiciatis sit vitae, repudiandae possimus sint, harum nemo ullam illum necessitatibus atque?</p>
+        
+                        <div class="postTimeUser"> 
+                                <div class="postTime">
+                                    <p>aug 2, 2018</p>
+                                </div>
+                                <div class="PostUserName">
+                                    <p>george</p>
+                                </div>
+                            </div>
+                    </div>
+    
+
+            </div>
+
+        </div>
+        </div>
+    </div>
