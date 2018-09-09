@@ -17,6 +17,7 @@ get '/' do
         #If a users session id is nonexistant, it will redirect them to the sign-in page
     elsif session[:user_id]
         @user = current_user
+        @post = Post.all.reverse
         #If a user has a session id, it just links them to the current user.
     end
 
@@ -76,8 +77,8 @@ post '/' do
 end
 
 get '/profile' do
-    user = current_user
-    "Test WELCOME #{user.username}"
+    @user = current_user
+
 end
 
 def current_user

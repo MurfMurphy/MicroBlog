@@ -19,62 +19,7 @@
                 </div>
             </div>
         </div>
-        <!--  -->
-        <!--<div class="sidePostSide">
-            <div class="sidePostHeader">
-                <h4>People</h4>
-            </div>
-            <div class="sideUserInfo">
-                <div class="sideUserName">
-                    george  
-                </div>
-                <div class="SideFollow">
-                    <button id="folloBtn">Follow</button>
 
-                </div>
-
-            </div>
-
-
-
-            <div class="sideUserInfo">
-                    <div class="sideUserName">
-                        george  
-                    </div>
-                    <div class="SideFollow">
-                        <button id="folloBtn">Follow</button>
-        
-                    </div>
-        
-            </div>
-
-
-            <div class="sideUserInfo">
-                    <div class="sideUserName">
-                        george  
-                    </div>
-                    <div class="SideFollow">
-                        <button id="folloBtn">Follow</button>
-        
-                    </div>
-        
-                </div>
-
-
-                    <div class="sideUserInfo">
-                            <div class="sideUserName">
-                                george  
-                            </div>
-                            <div class="SideFollow">
-                                <button id="folloBtn">Follow</button>
-                
-                            </div>
-                
-                        </div>
-
-        </div> -->
-
-        <!--  -->
         <div class="homeContent">
             <div class="newPost">
                 <form method="POST" action='/'>
@@ -86,51 +31,24 @@
             </div>
 
         <div class="postMain">
+
+        <% @post.each do |post|%>
             <div class="postPost">
                 <div class="userPost">
-                    <p><%= Post.first.body%></p>
+                    <p><%= post.body%></p>
                     
                     <div class="postTimeUser"> 
                         <div class="postTime">
-                            <p><%= Post.first.posted_at%></p>
+                            <p><%= post.posted_at%></p>
                         </div>
                         <div class="PostUserName">
-                            <p><%= Post.first.user_id%></p>
+                            <p><a href="/target_user"><%= User.find(post.user_id).username %></a></p>
                         </div>
                     </div>
                 </div>
-
-                <!--  -->
-                <div class="userPost">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. delectus velit similique ratione perspiciatis sit vitae, repudiandae possimus sint, harum nemo ullam illum necessitatibus atque?</p>
-
-                        <div class="postTimeUser"> 
-                                <div class="postTime">
-                                    <p>aug 2, 2018</p>
-                                </div>
-                                <div class="PostUserName">
-                                    <p>george</p>
-                                </div>
-                        </div>
-                    </div>
-                
-                <!--  -->
-                <div class="userPost">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. delectus velit similique ratione perspiciatis sit vitae, repudiandae possimus sint, harum nemo ullam illum necessitatibus atque?</p>
-        
-                        <div class="postTimeUser"> 
-                                <div class="postTime">
-                                    <p>aug 2, 2018</p>
-                                </div>
-                                <div class="PostUserName">
-                                    <p>george</p>
-                                </div>
-                            </div>
-                    </div>
-    
-
             </div>
-
+        <% end %>
         </div>
+
         </div>
     </div>
