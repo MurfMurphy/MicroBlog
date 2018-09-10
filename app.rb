@@ -78,6 +78,10 @@ end
 
 get '/profile' do
     @user = current_user
+    @post = Post.all.where(user_id: @user.id).reverse
+
+
+    erb :profile
 
 end
 
