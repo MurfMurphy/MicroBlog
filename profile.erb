@@ -1,0 +1,52 @@
+<div class="postHeader">
+       <div class="postTitle">
+       <h3>Twitter</h3>
+       </div>
+</div>
+
+
+
+<div id="profileBox">
+    <button id="editButton" onclick="editProfile()">Edit Your Profile</button>
+
+    <form method="POST" action="/update-profile">
+
+        <h1>Username: <%=@user.username%></h1><br>
+        <input class="editProfile" label="NEW USERNAME" type="text" name="[user]username">
+
+        <h1>First Name: <%=@user.fname%></h1><br>
+        <input class="editProfile" label="NEW FIRST NAME" type="text" name="[user]fname">
+
+        <h1>Last Name: <%=@user.lname%></h1><br>
+        <input class="editProfile" label="NEW LAST NAME" type="text" name="[user]lname">
+
+        <h1>Email: <%=@user.email%></h1><br>
+        <input class="editProfile" label="NEW EMAIL" type="text" name="[user]email"><br>
+
+        <input class="editProfile" type="submit" name="Update" value="Update">
+    </form>
+
+</div>
+
+<div id="profilePostBox">
+        <% @post.each do |post|%>
+            <div class="postPost">
+                <div class="userPost">
+                    <p><%= post.body%></p>
+                    
+                    <div class="postTimeUser"> 
+                        <div class="postTime">
+                            <p><%= post.posted_at%></p>
+                        </div>
+                        <div class="PostUserName">
+                            <p><a href="/target_user"><%= User.find(post.user_id).username %></a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+
+
+</div>
+
+
