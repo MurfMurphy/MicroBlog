@@ -1,5 +1,13 @@
+
+<!--<script>
+    function unHide(){
+        document.getElementByClass('editProfile').style.display = "inline-block";
+    }
+</script>-->
+
+
 <div id="profileBox">
-    <button id="editButton" onclick="editProfile()">Edit Your Profile</button>
+    <button onclick="unHide()">Edit Your Profile</button>
 
     <form method="POST" action="/update-profile">
 
@@ -42,3 +50,8 @@
 </div>
 
 
+<script>
+    function unHide(){
+        document.getElementByClass('editProfile').style.visibility = "visible";
+    }
+</script>

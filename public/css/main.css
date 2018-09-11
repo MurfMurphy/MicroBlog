@@ -5,7 +5,7 @@
 body {
   background: linear-gradient(0.25turn, gray, white, gray); }
 
-#signInContent {
+#signInContent, #signUpContent, #profileBox {
   text-decoration: none;
   font-size: 24px;
   padding: 5px;
@@ -20,24 +20,11 @@ body {
   transform: translate(-50%, -50%);
   border: 20px  #29487d;
   border-color: #29487d;
-  height: 500px; }
+  height: 525px; }
 
-#signUpContent {
-  text-decoration: none;
-  font-size: 24px;
-  padding: 5px;
-  margin: 4px;
-  color: wheat;
-  width: 45%;
-  background-color: #29487d;
-  border-radius: 16px;
+#profilePostBox {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border: 20px  #29487d;
-  border-color: #29487d;
-  height: 500px; }
+  top: 95%; }
 
 .button {
   font-size: 35px; }
